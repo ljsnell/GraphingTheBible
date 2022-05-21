@@ -2,6 +2,8 @@ MERGE(c1:Chapter {value:1}) with c1
 
 MERGE(jtb:Person {name: "John the Baptist"}) with c1, jtb
 MERGE(jtb)-[:in]->(c1) with c1
+MERGE(cr:Person {name: "People from Judea and all Jerusalem"}) with c1, cr
+MERGE(cr)-[:in]->(c1) with c1
 
 MERGE(g1:God {name: "Jesus Christ, the Son of God"}) with c1, g1
 MERGE(g1)-[:in]->(c1) with c1
