@@ -2,7 +2,7 @@ MERGE(c1:Chapter {value:1}) with c1
 
 MERGE(jtb:Person {name: "John the Baptist"}) with c1, jtb
 MERGE(jtb)-[:in]->(c1) with c1
-// MERGE(l:Location {value: "Wilderness"}) with c1, jtb
+
 MERGE(g1:God {name: "Jesus Christ, the Son of God"}) with c1, g1
 MERGE(g1)-[:in]->(c1) with c1
 MERGE(g2:God {name: "Holy Spirit"}) with c1, g2
@@ -13,7 +13,8 @@ MERGE(g4:Supernatural {name: "Satan"}) with c1, g4
 MERGE(g4)-[:in]->(c1) with c1
 MERGE(g5:Supernatural {name: "Angels"}) with c1, g5
 MERGE(g5)-[:in]->(c1) with c1
-
+MERGE(g7:Supernatural {name: "Demons"}) with c1, g7
+MERGE(g7)-[:in]->(c1) with c1
 // 4 of the 12 are called
 MERGE(t:TwelveDisciples {type: "Twelve Disciples"}) with t, c1
 
@@ -55,4 +56,6 @@ MERGE(ip:Person {name: "Isaiah"}) with ip, c1
 MERGE(ip)-[:in]->(c1) with c1
 
 MERGE(a:Animal {value: "Wild Animals"}) with a, c1
-MERGE(a)-[:in]->(c1) 
+MERGE(a)-[:in]->(c1) with c1
+MERGE(lo:Animal {value: "Locusts"}) with lo, c1
+MERGE(lo)-[:in]->(c1)
