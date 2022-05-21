@@ -13,6 +13,8 @@ MERGE(sg:Location {name: "Sea of Galilee"}) with c1, sg
 MERGE(sg)-[:in]->(c1) with c1
 MERGE(d:Location {name: "desolate place"}) with c1, d
 MERGE(d)-[:in]->(c1) with c1
+MERGE(jr:Location {name: "Jordan River"}) with c1, jr
+MERGE(jr)-[:in]->(c1) with c1
 MERGE(c:Location {name: "Capernaum"}) with c1, c
 MERGE(c)-[:in]->(c1) with c1, c
 // Located_In Capernaum
