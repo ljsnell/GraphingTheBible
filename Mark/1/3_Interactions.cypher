@@ -8,7 +8,11 @@ MERGE(cj:Location {name: "Country of Judea"}) with cj, j, jtb
 MERGE(w:Location {name: "Wilderness"}) with w, cj, j, jtb
 MERGE(jtb)-[:appeared_in]->(w) with jtb, cj, j
 MERGE(cj)-[:came_to]->(jtb)-[:baptized]->(cj) with jtb, j
-MERGE(j)-[:came_to]->(jtb)-[:baptized]->(j) with jtb
+MERGE(j)-[:came_to]->(jtb)-[:baptized]->(j) with jtb, j
+
+// People from Judea and Jerusalem visit John
+MERGE(cr:Person {name: "People from Judea and all Jerusalem"}) with cr, jtb, j
+MERGE(cr)-[:came_to]->(jtb)-[:baptized]->(j) with jtb
 
 // Baptized Jesus who came from Nazareth in the Jordan River
 MERGE(g1:God {name: "Jesus Christ, the Son of God"}) with g1, jtb
@@ -37,6 +41,11 @@ MERGE(g4)-[:tempted]->(g1) with g1
 // Angels ministered to Jesus
 MERGE(g5:Supernatural {name: "Angels"}) with g5, g1
 MERGE(g5)-[:ministered_to]->(g1)
+
+// Wild Animals ministered to Jesus
+MERGE(g1:God {name: "Jesus Christ, the Son of God"}) with g1
+MERGE(a:Animal {value: "Wild Animals"}) with a, g1
+MERGE(a)-[:ministered_to]->(g1)
 
 // John was arrested
 MERGE(jtb:Person {name: "John the Baptist"}) with jtb
