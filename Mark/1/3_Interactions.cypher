@@ -10,6 +10,10 @@ MERGE(jtb)-[:appeared_in]->(w) with jtb, cj, j
 MERGE(cj)-[:came_to]->(jtb)-[:baptized]->(cj) with jtb, j
 MERGE(j)-[:came_to]->(jtb)-[:baptized]->(j) with jtb, j
 
+// John ate Locusts
+MERGE(lo:Animal {value: "Locusts"}) with lo, jtb, j
+MERGE(jtb)-[:ate]->(lo) with lo, jtb, j
+
 // People from Judea and Jerusalem visit John
 MERGE(cr:Person {name: "People from Judea and all Jerusalem"}) with cr, jtb, j
 MERGE(cr)-[:came_to]->(jtb)-[:baptized]->(j) with jtb
@@ -43,7 +47,6 @@ MERGE(g5:Supernatural {name: "Angels"}) with g5, g1
 MERGE(g5)-[:ministered_to]->(g1)
 
 // Wild Animals ministered to Jesus
-MERGE(g1:God {name: "Jesus Christ, the Son of God"}) with g1
 MERGE(a:Animal {value: "Wild Animals"}) with a, g1
 MERGE(a)-[:ministered_to]->(g1)
 
