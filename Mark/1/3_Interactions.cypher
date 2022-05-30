@@ -19,6 +19,8 @@ MERGE(g1)-[:came_from]->(ng) with g1, jr, jtb
 
 // John baptized Jesus
 MERGE(jtb)-[:baptized]->(g1)-[:baptized_in]->(jr) with g1
+MERGE(g3:God {name: "Voice from Heaven"}) with g3, g1
+MERGE(g3)-[:spoke_to]->(g1) with g1
 
 // Spirit descended_on Jesus
 MERGE(g2:God {name: "Holy Spirit"}) with g2, g1
@@ -37,6 +39,9 @@ MERGE(g5:Supernatural {name: "Angels"}) with g5, g1
 MERGE(g5)-[:ministered_to]->(g1)
 
 // John was arrested
+MERGE(jtb:Person {name: "John the Baptist"}) with jtb
+MERGE(a:Action {name: "Arrested"}) with a, jtb
+MERGE(jtb)-[:was]->(a)
 
 // Jesus came into Galilee
 MERGE(g:Location {name: "Galilee"}) with g
@@ -84,6 +89,10 @@ MERGE(g1)-[:heals]->(sm) with g1
 MERGE(gsod:Group {name: "All who were sick or oppressed by demons"}) with gsod, g1
 MERGE(g1)-[:heals]->(gsod) with g1
 
+// Jesus casts out Demons
+MERGE(g7:Supernatural {name: "Demons"}) with g1, g7
+MERGE(g1)-[:casts_out]->(g7) with g1
+
 // Jesus heals a leper
-MERGE(l:Person {name: "Leper"}) with l
+MERGE(l:Person {name: "Leper"}) with l, g1
 MERGE(g1)-[:heals]->(l)
